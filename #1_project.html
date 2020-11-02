@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1# Project</title>
+</head>
+<body>
+
+	<!-- 1. Create a script to concat a string and variable together
+		2. Using .innerHTML and getElementById change innerHTML of an element to be what your variable is -->
+
+	<h1>
+		I love a girl and her name is 
+		<span id="lover">x</span>
+	</h1>
+
+
+	<script type="text/javascript">
+
+		var lover = document.getElementById("lover");
+		var name = lover.innerText;
+		name = " Monika";
+		lover.innerHTML = name;	
+		
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Accepting user Input
+	</title>
+</head>
+<body>
+
+	<h1>Your input was:</h1>
+	<h3 id="customInput">___________</h3>
+
+	<script>
+		
+		// prompt(text, default answer)
+		var name = prompt("What is your name?", "Grz");
+
+		name = name.toLowerCase()
+		var input = document.getElementById("customInput");
+		input.innerText = name;
+
+	</script>
+</body>
+</html>

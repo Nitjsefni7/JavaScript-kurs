@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>String manipulation</title>
+</head>
+<body>
+
+	<h1 id="sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+
+	<script>
+		
+		var sentenceNode = document.getElementById("sentence");
+		var sentence = sentenceNode.innerText;
+
+		var upperSentence = sentence.toUpperCase();
+		var lowerSentence = sentence.toLowerCase();
+		// .substr(from, ?lenght) funkcja wyciaga tylko konkretna ilosc znakow/liter
+		var firstElevenChars = sentence.substr(0, 11);
+		// .split() dzieli zdanie w miejscu konkretnego znaku, litery
+		// .join() laczy wyrazy  czym chcemy
+		var allWords = sentence.split(" ");
+		var bracketWords = "(" + allWords.join("),(") + ")";
+		// .slice(?start, ?end) wycina kawałek
+		var firstThreeWords = allWords.slice(0,3);
+
+		var makeSentence = allWords.slice(5,11).join(" ");
+
+	</script>
+</body>
+</html>
