@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>If/else else/if</title>
+</head>
+<body>
+
+	<script>
+		
+		// Alternatywa dla else if 
+		var name2 = "Paszczak";
+
+		switch(name2) {
+			case "Grz":
+				console.log("Awesome");
+				break;
+			case "Monia":
+				console.log("Kocham Grz");
+				break;
+			case "Paszczak":
+				console.log("miał");
+				break;
+			default:
+				console.warn("Can't handle it");
+				break;
+		}
+
+		var name = "Grz"
+
+		if(name == "Grz") {
+			console.log("Awesome");
+		} else if(name == "Monia") {
+			console.log("Kocham Grz");
+		} else if(name == "Paszczak") {
+			console.log("miał");
+		} else {
+			console.warn("Can't handle it");
+		}
+
+	</script> 
+</body>
+</html>

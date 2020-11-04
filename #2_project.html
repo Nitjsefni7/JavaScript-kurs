@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#2 project</title>
+</head>
+<body>
+	
+	<h1>Click <a id="link" href="" target="_blank">here!</a></h1>
+
+		<!-- 1. Ask te user for url
+		2. Check if the link start with http
+		3. if it doesn't start with http, fix variable
+		4. inject a link to your page using .innerHTML -->
+
+		<script>
+					
+			var url = prompt("Paste here your link");	
+			if(url == null) {
+				alert("Wrong url, cancel this!")
+			} else {
+				if(url.substr(0,4).toLowerCase() != "http"){
+					var url = "http://" + url;
+				}
+				var aNode = document.getElementById("link");
+				aNode.href = url;
+				aNode.innerText = url;
+			}
+
+
+		</script>
+
+
+</body>
+</html>
