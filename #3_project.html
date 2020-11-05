@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#3 Project</title>
+	<style type="text/css">
+		
+		h1{
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- 	1.Ask user for a number
+	2. Cast the input to a Number
+	3. Make sure the number is valid (not NaN)
+	4. If the numbe is over 18 change the text on the page -->
+
+	<h1>Hi there, tell me your age, because this site is for adults only</h1>
+	<h1 id="msg"></h1>
+
+
+	<script type="text/javascript">
+		
+		// funkcja while(true) pozwala nam pytac o wiek dopoki uzytkownik nie poda faktycznie jakiejs liczby
+		while(true) {
+			var userAge = Number(prompt("Please verify Your age"));
+			if (userAge){  //jezeli uzytkownik podal jakakolwiek liczbe opuszczamy petle while
+				break;
+			} else {  //jezeli uzytkownik podal cokolwiek innego niz liczbe, powiadomimy o tym i zapytamy go ponownie
+				alert("This wasn't a number");
+			}
+		}
+
+		var msgNode = document.getElementById("msg");
+
+		if(userAge >= 18){
+			msgNode.innerHTML = "<h1 id='msg' style='color: green'>Thank you, you are welcome to our site</h1>";
+			// msgNode.innerText = "Thank you, you are welcome to our site";
+			// msgNode.style.color = "green";
+		} else {
+			msgNode.innerText = "Please, leave the site";
+			msgNode.style.color = "red";
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>
