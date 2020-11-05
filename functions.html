@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+
+	<h1 id="title">Ponczek bez ronczek</h1>
+
+	<script type="text/javascript">
+	// warta uzywania czesto funkcja 	
+	function $(id){
+		return document.getElementById(id)
+	}
+
+	function CtoF(x) {
+		var F = x * 1.8 + 32;
+		return F;
+	}
+
+	var nTitle = $("title");
+	nTitle.innerText = "Peres bez przekleństw";
+
+	var zero = CtoF(0); console.log(zero);
+	var zero = CtoF(100); console.log(zero);
+	</script>
+</body>
+</html>
