@@ -6,7 +6,7 @@
 <body>
 
 	<h1>Cost of your receit: <span id="bill"></span></h1>
-	<h1>Your tip: <span id="tip"></span></h1>
+	<h1>Your tip<span id="tip"></span></h1>
 	<h1>Total amount to pay: <span id="total" style="color: green"></span></h1>
 
 
@@ -82,7 +82,7 @@
 
 		//changing text on the website according to the user's input
 		$("bill").innerText = bill;
-		$("tip").innerText = tip;
+		$("tip").innerText =" (" + tip_percent + "%): " tip;
 		$("total").innerText = total;
 
 	</script>
