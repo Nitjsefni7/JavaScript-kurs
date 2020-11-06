@@ -78,6 +78,7 @@
 		}
 
 		var tip = calcTip(bill, tip_percent); //getting amount of tip using function
+		tip = tip.toFixed(2);
 		var total = calcTip(bill, tip_percent, true) // getting total amount to pay using fucntion with extra variable
 
 		//changing text on the website according to the user's input
