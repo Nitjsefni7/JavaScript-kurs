@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#4 projekt</title>
+</head>
+<body>
+
+	<h1>Cost of your receit: <span id="bill"></span></h1>
+	<h1>Your tip: <span id="tip"></span></h1>
+	<h1>Total amount to pay: <span id="total" style="color: green"></span></h1>
+
+
+	<!-- 1. Create a simple tip calculator
+	2. It needs to accept 2 parameters
+	3. Make a tip parameter optional
+	4. Return the total amount and save it to a var -->
+
+	<script type="text/javascript">
+
+		//function to calculate tip based on bill and how much tip guest would like to leave [%]
+		function calcTip(bill, tip_percent = 0){
+			var tip = tip_percent/100 * bill;
+			return tip;
+		}
+
+		//function to check if the input is a number, and if so, it changes type of the user input from string to number
+		function checkIfNum(num){
+			var num = Number(num);
+			if(isNaN(num)){
+				return false;
+			} else {
+			return num;
+			}
+		}
+
+		//function to obtaining element by Id
+		function $(id){
+			return document.getElementById(id);
+		}
+
+
+		// user cannot leave this loop unless his input is a number
+		while (true){
+			var bill = prompt("Please type the amount on your receit.");
+			if (checkIfNum(bill)){
+					bill = checkIfNum(bill);
+					break;
+				} else {
+					alert("You have to give a number")
+				}
+		}
+
+		// user cannot leave this loop unless his input is what we expect to be (sign "y" or "n" and then eventually a number)
+		while(true){
+			var answer = prompt("Would you like to give a tip? (Y/N)");
+			if (["y","n","Y","N"].includes(answer)){ //checking if user's input is a sing "y" or "n", casewise
+				answer = answer.toLowerCase(); 
+				if (answer == "y"){ 
+					var tenPercentTip = 0.1*bill;
+					tenPercentTip = tenPercentTip.toFixed(2); //rounding the number to the value coresponding with an actuall money
+					var tip_percent = prompt("How much of a tip would you like to give (in %)? (FYI 10% of your order equals to: "+ tenPercentTip); 
+					if (checkIfNum(tip_percent)){ //checking, that if user want to give a tip, is it actually a number
+						tip_percent = checkIfNum(tip_percent);
+						break; 
+					} else {
+						alert("You have to give a number")
+					}
+				} else {
+					break; //we leave the loop if user doesn't want to give a tip
+				}
+			} else {
+				alert("You have to type Y or N.")
+			}
+		}
+
+		var tip = calcTip(bill, tip_percent); //calculating amount of tip
+		var total = bill + tip; // calculating the total amount to pay
+
+		//changing text on the website according to the user's input
+		$("bill").innerText = bill;
+		$("tip").innerText = tip;
+		$("total").innerText = total;
+
+	</script>
+
+</body>
+</html>
