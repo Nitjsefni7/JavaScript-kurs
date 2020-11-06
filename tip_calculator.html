@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>#4 projekt</title>
+	<title>#4 projekt, tip calculator</title>
 </head>
 <body>
 
@@ -17,9 +17,13 @@
 
 	<script type="text/javascript">
 
-		//function to calculate tip based on bill and how much tip guest would like to leave [%]
-		function calcTip(bill, tip_percent = 0){
+		//function to calculate tip based on bill and how much tip guest would like to leave [%]. There is an otpion to return total amount to pay
+		function calcTip(bill, tip_percent = 0, returnTotalAmount = false){
 			var tip = tip_percent/100 * bill;
+			var total = bill + tip;
+			if (returnTotalAmount){
+				return total;
+			}
 			return tip;
 		}
 
@@ -73,8 +77,8 @@
 			}
 		}
 
-		var tip = calcTip(bill, tip_percent); //calculating amount of tip
-		var total = bill + tip; // calculating the total amount to pay
+		var tip = calcTip(bill, tip_percent); //getting amount of tip using function
+		var total = calcTip(bill, tip_percent, true) // getting total amount to pay using fucntion with extra variable
 
 		//changing text on the website according to the user's input
 		$("bill").innerText = bill;
