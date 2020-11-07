@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Query selector</title>
+</head>
+<body>
+	<!-- form - rzeczy ktorych uzywamy aby uzytkownik wprowadzil swoje dane -->
+	<input type="text" style="padding: 30px; font-size: 30px;" class="form-control" value="Hello World!">
+
+	<h1 class="title">This is a tittle
+		<small>Change me too!</small> <!-- element wewnątrz elementu (CHILD ELEMENT) -->
+
+	</h1>
+
+	<a href="">jakiś link</a>
+
+	<ul>
+		
+		<li>Number 1</li>
+		<li>Number 2</li>
+		<li>Number 3</li>
+		<li>Number 4</li>
+		<li>Number 5</li>
+		<li>Number 6</li>
+	</ul>
+
+	<script type="text/javascript">
+		
+		var title = document.querySelector(".title"); //dostajemy się do klasy .title
+		var small = title.querySelector("small"); // przeszukujemy tylko node "title" (posiadająca obiekt z klasy .title) 
+		// i szukamy obiektu small
+		var a = document.querySelector("a");
+		var lis = document.querySelectorAll("li"); // dostajemy tablice wszystkich elementow listy
+		lis[0].innerText; // tekst pierwszego elementu listy
+
+		var input = document.querySelector(".form-control");
+		console.log(input.value); //dostajemy wartosc value z "form", czyli wartosc jaka wprowadzi uzytkownik
+
+
+
+
+	</script>
+
+</body>
+</html>
