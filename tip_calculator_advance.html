@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tip Calculator (Advance)</title>
+	<style type="text/css">
+
+		body {
+			margin-top: 50px;
+		}
+
+		div.button {
+			margin-left: 125px;
+		}
+
+		div.label {
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<h1>Tip Calculator</h1>
+	<div class="label">
+		<label for="bill-amount">Bill amount ($)</label> <!-- label uzywamy aby oznaczyc pozniejszy input, for = id  -->
+		<div style="display: inline; padding: 13px">
+			<input type="number" class="form-control" id="bill-amount" step="0.01" min="0" placeholder="ie. 29">
+		</div>
+	</div>
+	<div class="label">
+		<label for="tip">Tip amount (%)</label>
+		<div style="display: inline; padding: 10px;">
+			<input type="number" class="form-control" id="tip" step="1" min="0" max="100" placeholder="ie. 10">
+		</div>
+	</div>
+	<div class="button">
+		<button class="btn btn-primary" style="background-color: lime; color:black; font-size: 15px; " onclick="calculate()">
+			Calculate Tip and Total Bill
+		</button>
+	</div>
+
+	<h1 class="result" style="color: red;"><h1>
+	<h1 class="result" style="color: red;"><h1>
+
+	<script type="text/javascript">
+		
+		function calculate(){
+			var bill = Number(document.querySelectorAll(".form-control")[0].value);
+			var tip = Number(document.querySelectorAll(".form-control")[1].value);
+			var tipAmount= tip/100 * bill;
+			var total = bill + tipAmount;
+
+			var result = document.querySelectorAll(".result")[0];
+				result.innerText = "Your tip amount is: $" + tipAmount.toFixed(2);
+			var result = document.querySelectorAll(".result")[1];
+				result.innerText = "Your total bill is: $" + total.toFixed(2);
+		}
+
+
+	</script>
+
+</body>
+</html>
