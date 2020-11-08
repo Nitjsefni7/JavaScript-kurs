@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event listeners</title>
+</head>
+<body>
+
+	<button style="padding: 20px;" class="btn">
+		Click me
+	</button>
+	<div id="totalClicks">0</div>
+
+
+	<input type="text" class="input">
+
+	<h1>Hello <span class="hello"></span></h1>
+
+	<script type="text/javascript">	
+		//most popular event listeners: click and keypress
+
+		var btn = document.querySelector(".btn");
+		var counter = document.getElementById("totalClicks");
+		var totalClicks = 0;
+
+		// element.addEventListener(rodzaj even listenera, function(event){})
+		btn.addEventListener("click", function(event) {
+			totalClicks++;
+			counter.innerText = totalClicks;
+		})
+
+		var input = document.querySelector(".input");
+		var msg = document.querySelector(".hello");
+
+		function callBack(event){
+			msg.innerText = event.target.value;
+		}
+
+		input.addEventListener('keyup', callBack);
+		
+	</script>
+
+</body>
+</html>

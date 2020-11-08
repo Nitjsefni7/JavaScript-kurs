@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anonymous function and IIFE</title>
+
+	<!-- Troche zabawy z div podzielonymi na kolumny i wiersze  -->
+	
+	<style type="text/css">
+		
+		div {
+			padding: 10px;
+			/*border: 1px solid black;*/
+		}
+
+		div.row {
+			overflow: hidden;
+		}
+
+		div.col{
+			float: left;
+			margin: 0 20px;
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+
+		<!-- IIFE = Imedietlye Invoked Function Expression -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<input type="text" class="getName" value="Monia">
+			</div>
+			<div class="col">
+				<input type="text" class="getName" value="Grz">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		//IIFE with anonymous function-  (function(){})();
+		var getName = (function(){
+			return document.querySelector(".getName").value;
+		})();
+
+		//IIFE with normal functiom
+		(function loadApp(){
+			console.log("App is loading");
+			//.....
+			console.log("App is loaded");
+		})();
+
+	</script>
+
+
+</body>
+</html>

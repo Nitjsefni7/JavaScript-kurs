@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>key word - this</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		
+
+		// słowo this odnosi sie do funkcji/obiektu w sobie samym
+		// w tym przykladzie dostajemy getPerson.name = podane imie oraz getPerson.proffesion
+		// zwracamy obiekt getPerson ze zmiennymi w srodku
+		// potem przypisujemy ja do Grz
+		// wiec mamy Grz.name oraz Grz.profession
+		function getPerson(name){
+			this.name = name;
+			this.profession = "barman"; 
+			return this
+		}
+
+		var Grz = getPerson("Grz");
+
+		//hoisting, czyli okreslanie zmiennych na samym poczatku danego "scope" bez wzgledu kiedy zostala zadeklarowana
+		//na poczatku zmienna jest tez "undefined" czyli bez przypisanej wartosci
+		(function getName(){
+	
+			console.log("Var not set yet, " + myName);
+				if (myName === undefined){
+					myName = "Grz";
+				}
+
+			console.log("Var is set to, " + myName);
+
+			var myName;
+		})();
+
+	</script>
+</body>
+</html>
