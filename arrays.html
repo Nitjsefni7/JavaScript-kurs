@@ -15,7 +15,21 @@
 		// weź elementy listy .slice(start, ilość)
 		names.slice(0,2);
 
+		//sort array
+
+		function compareNumbers(a,b){
+			return a - b;
+		};
+
+		var array = [0, 5, 3, 4, 1, 6, 10];
+		array.forEach(function(num,index){
+			console.log(num);
+		});
 		
+		var sortedArray = array.sort(compareNumbers);
+		sortedArray.forEach(function(num,index){
+			console.log(num);
+		});
 
 	</script>
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game #2</title>
+	<style type="text/css">
+
+		body{
+			font-size: 30px;
+		}
+		
+		div{
+			padding: 10px;
+		}
+
+		div.col{
+			float: left;
+		}
+
+		div.row{
+			overflow: hidden;
+		}
+
+		div.alert {
+			background-color: orange;
+			border: solid 2px black;
+			padding: 0px;
+			margin: 0px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h1>Guessing Game #2</h1>
+	<h3>Try to guess a number between 1 and 50 and press enter</h3>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<label for="uNum">Your guess:</label>
+				<input type="number" class="userNum" id="uNum" style="font-size: 30px" min="1" max="10" step="1">
+			</div>
+			<div class="col">
+				<div class="alert">
+					________
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			You have failed to guess <span class="counter">???</span> time(s) already.
+		</div>
+		<div class="row">
+			You have already tried: <span class="tried"></span>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		
+		var userInput = document.querySelector(".userNum");
+		var alert = document.querySelector(".alert");
+		var counterNode = document.querySelector(".counter");
+		var tried = document.querySelector(".tried");
+
+		var numToGuess = getRandom(1,50);
+		var triedNumbers = [];
+		console.log(numToGuess);
+		var counter = 0;
+
+	
+		userInput.addEventListener('keypress', function(event){
+			if (event.key == "Enter"){
+				if (event.target.value == numToGuess){
+					alert.innerText = "Yeah! You did it!"
+					alert.style.color = "white";
+					alert.style.backgroundColor = "green";
+					userInput.disabled = "true";
+				} else {
+				alert.style.color = "black";
+				alert.style.backgroundColor = "red";
+				if (event.target.value < numToGuess){
+					alert.innerText = "Nope, it's not a right number! Try higher."
+				} else {
+					alert.innerText = "Nope, it's not a right number! Try lower."
+				}
+				counter++;
+				counterNode.innerText = counter;
+				tried.innerText = printTriedNumbers();
+				}
+			}
+		});
+		
+		function getRandom(min, max){
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		};
+
+		function compareNumbers(a,b){
+			return a - b;
+		};
+
+		function printTriedNumbers(){
+			printed = "";
+			triedNumbers.push(event.target.value);
+			triedNumbers.sort(compareNumbers);
+			triedNumbers.forEach(function(num, index){
+				printed = printed + " " + num;
+			});
+			return printed;
+		};
+
+	</script>
+
+</body>
+</html>

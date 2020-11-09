@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game</title>
+
+	<style type="text/css">
+
+		body {
+			font-size: 30px;
+		}
+		
+		div {
+			padding: 10px;
+			margin:5px 5px;
+		}
+
+		div.col {
+			border: solid 3px black;
+		}
+
+		span {
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h1>Guessing Game</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				Number to guess: <span class="guess">???</span> 
+			</div>
+			<div class="col">
+				You have tried: <span class="tryNum">???</span> times.
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+		var info = document.querySelector(".guess");
+		var tryNum = document.querySelector(".tryNum");
+
+		function getRandom(min, max){
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function checkIfNum(num){
+			if (isNaN(num)){
+				alert ("You have to type a number");
+				return false;
+			} else {
+				return true;
+			}		
+		}
+		var tries = 0;
+		var numToGuess = getRandom(0,10);
+		console.log(numToGuess);
+
+		while(true){
+			var userNum = Number(prompt("Please guess a number:", 0));
+			if(checkIfNum(userNum)){
+				if (userNum == numToGuess){
+					alert("Yeah, you are right!");
+					info.innerText = numToGuess;
+					info.style.color = "green";
+					tries++;
+					tryNum.innerText = tries;
+					break;
+				}
+				alert ("No, its not this number");
+				tries++;
+			}
+		}
+
+	</script>
+
+
+
+
+</body>
+</html>
