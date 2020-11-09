@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>changing CSS with event listener</title>
+</head>
+<body>
+
+	<h1>Changing CSS with Event Listener</h1>
+
+	<div>
+		<label>Background color</label>
+		<input type="text" class="js-bg-color" style="padding: 30px; font-size: 30px;">
+	</div>
+	<div>
+		<label>Text color</label>
+		<input type="text" class="js-text-color" style="padding: 30px; font-size: 30px;">
+	</div>
+
+	<script type="text/javascript">
+		
+		var bgColor = document.querySelector(".js-bg-color");
+		var textColor = document.querySelector(".js-text-color");
+		var body = document.querySelector("body");
+
+		bgColor.addEventListener('keyup', function(e){
+			var color = event.target.value;
+			switch(color){
+				case "red":
+				case "black":
+				case "blue":
+					body.style.backgroundColor = color;
+					break;
+				default:
+					body.style.backgroundColor = "white";
+					break;	
+			}
+		})
+		textColor.addEventListener('keyup', function(event){
+			body.style.color = event.target.value;
+		})
+	</script>
+</body>
+</html>

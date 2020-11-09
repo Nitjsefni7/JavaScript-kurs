@@ -14,6 +14,7 @@
 	<input type="text" class="input">
 
 	<h1>Hello <span class="hello"></span></h1>
+	<h2 style="color: red;" class="warn">warning?</h2>
 
 	<script type="text/javascript">	
 		//most popular event listeners: click and keypress
@@ -34,9 +35,13 @@
 		function callBack(event){
 			msg.innerText = event.target.value;
 		}
-
 		input.addEventListener('keyup', callBack);
-		
+
+		var warn=document.querySelector(".warn");
+		input.addEventListener('paste', function(event){
+			warn.innerText = "Kurwa tak ostrzezenie";
+		})
+
 	</script>
 
 </body>

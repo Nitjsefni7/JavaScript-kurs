@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>While loop</title>
+</head>
+<body>
+	<h1>Generated List:</h1>
+	<ul class="js-list"></ul>
+
+	<script type="text/javascript">
+		
+		var ul = document.querySelector(".js-list");
+		var html ='';
+
+		var num = Number(prompt("Please give me a number of list's positions."))
+		var startNum = 1;
+
+		while (startNum <= num){
+			html = html + "<li>Position number: " + startNum + "</li>"
+			startNum++;
+		}
+
+		ul.innerHTML = html;
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#5 project</title>
+
+	<style type="text/css">
+		
+		input {
+			padding: 20px;
+			font-size: 20px;
+			border-radius: 20px;
+			border: solid 2px black;
+		}
+
+		div {
+			padding: 10px;
+		}
+
+		div.row {
+			overflow: hidden;
+		}
+
+		div.col {
+			float: left;
+			margin: 0 10px;
+		}
+	</style>
+</head>
+<body>
+		<!-- Create 3 input elements
+		Change the bckground color, text color and font size
+ 		-->
+
+ 		<h1>Changing the CSS of the site using event listener</h1>
+ 		<h3>Let's see different font size</h3>
+
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col">
+ 					<label for="bgColor">Background color</label>
+ 					<input type="text" class="js-bg-color" id="bgColor">
+ 				</div>
+ 				<div class="col">
+ 					<label for="textColor">Text color</label>
+ 					<input type="text" class="js-color" id="textColor">
+ 				</div>
+ 				<div class="col">
+ 					<label for="fontSize">Font size</label>
+ 					<input type="number" min="0" class="js-font-size" id="fontSize">
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col">
+ 					<label>Div padding</label>
+ 					<input type="number" min ="0" step="1" class="js-div-padding">
+ 				</div>
+ 			</div>
+ 		</div>
+
+ 		<script type="text/javascript">
+ 			//uzyskujem dotep do elemenntów: po kolei kazdy input, caly dokument oraz wszystie division
+ 			var bgColor = document.querySelector(".js-bg-color");
+ 			var color = document.querySelector(".js-color");
+ 			var fontSize = document.querySelector(".js-font-size");
+ 			var divPadding = document.querySelector(".js-div-padding");
+ 			var body = document.querySelector("body");
+ 			var divsArray = document.querySelectorAll("div");
+
+
+ 			bgColor.addEventListener('keyup', function(event){
+ 				body.style.backgroundColor = "white"; //jezeli w polu input nie pojawi sie zaden znany kolor to kolor tla bedzie biały
+ 				body.style.backgroundColor = event.target.value;
+ 			});	
+
+ 			color.addEventListener('keyup', function(event){
+ 				body.style.color = "black";
+ 				body.style.color = event.target.value;
+ 			});
+
+ 			fontSize.addEventListener('keyup', function(event){
+ 				body.style.fontSize = "20px";
+ 				body.style.fontSize = event.target.value +"px"; //trzeba pamietać, żeby dodać słowo ''px''
+ 			});
+
+ 			divPadding.addEventListener('keyup', function(event){
+
+ 				//iterujemy przez tablice zlozoną ze wszystkich możliwych divisions
+ 				// for (var i=0; i<divsArray.length; i++){
+ 				// 	divsArray[i].style.padding = "10px";
+	 			// 	divsArray[i].style.padding = event.target.value + "px";
+
+	 			//specjalna petla forEach stworzona zeby iterowac przez zawartosc tablic
+	 			// array.forEach(function(element, index){});
+	 			divsArray.forEach(function(div, index){
+	 				console.log(index, div);
+	 				div.style.padding = event.target.value + "px";
+	 			});
+ 			});
+ 			
+ 		</script>
+</body>
+</html>
