@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Otiented Programming</title>
+</head>
+<body>
+
+
+
+	<script type="text/javascript">
+		
+		//tworzenie klasy, ktora pozwala nam tworzyc obiekty z parametrami i metodami
+		class Person {
+			//i counstructor (WAZNE SLOWO) i makeSound to funckje, ale slowo function jest niepotrzebne
+			constructor(name, age, food) {
+				this.name = name;
+				this.age = Number(age);
+				this.food = food;
+			}
+			makeSound() {
+				console.log(this.name + " says mmmm to " + this.food);
+			}
+		}
+
+		const grz = new Person("grz", 26, "ramen")
+		grz.makeSound();
+
+		// pt.2
+
+		class Animal {
+			constructor(species, weight, height) {
+				this.species = String(species);
+				this.weight = Number(weight);
+				this.height = Number(height);
+			}
+
+			getInfo() {
+				console.log(this.species + 
+				" weighs " + this.weight + 
+				" and is " + this.height + " tall."
+				);
+			}
+
+			speak() {
+				console.log("I SAY A THING");
+			}
+		}
+
+		const tiger = new Animal("tiger", 300, 36);
+		tiger.getInfo();
+
+
+		// klasa Cat jest dzieckiem klasy Animal, czyli dziedziczy po nim metody
+		class Cat extends Animal {
+			constructor(species, weight, height) {
+				super(species, weight, height); //slowo super wywoluje constructor z klasy rodzica
+
+				this.color = "White"; //pierwsze this musi byc zawsze dopiero po super. dodajemy do klasy dziecka dodatkowa ceche, ktorej nie ma w klasie rodzica
+			}
+
+			sleep(){ //nowa metoda, ktorej nie ma w klasie rodzica
+				console.log(this.species + " is sleeping for very long a day");
+				return this; //dzieki temu mozliwe jest laczenie funkcji w lancuchy
+			}
+
+			speak(){ //metoda, ktora istnieje w klasie rodzica, ale w klasie dziecka zostaje nadpisana
+				console.log("moew");
+				return this;
+			}
+		}
+
+
+		const paszczak = new Cat("cat", 4, 1);
+		console.log(paszczak);
+		paszczak.getInfo();
+		paszczak.sleep().speak().sleep(); //chaining funtions
+		tiger.speak();
+
+	</script>
+
+</body>
+</html>
