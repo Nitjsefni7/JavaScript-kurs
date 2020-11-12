@@ -62,17 +62,16 @@
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<p class="modal-text">This is modal</p>
+			<input type="text" name="userInput">
 		</div>
 	</div>
 
 	<script type="text/javascript">
 
 		class Modal {
-			constructor(){
+			constructor(text = 'default text'){
 				this.modal = document.querySelector(".modal");
-				if (text !== undefined){
-					this.modal.querySelector(".modal-text").innerText = text;
-				}
+				this.text = text;
 			}
 			open() {
 				this.modal.style.display = "block";
@@ -81,12 +80,16 @@
 			exit() {
 				this.modal.style.display = "none";
 				}
-			changeCont
+			changeContent() {
+				if (this.text !== undefined){
+					this.modal.querySelector(".modal-text").innerText = this.text;
+				}
+			}
 		}
 
 		const openBtn = document.querySelector(".btn");
 		const closeBtn = document.querySelector(".close");
-		const objectModal = new Modal("bla bla bla");
+		const objectModal = new Modal("zmieniony tekst");
 
 		openBtn.addEventListener("click", function(event){
 			objectModal.open();

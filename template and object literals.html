@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temaplate literals // object literals</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		name = "Grz";
+		//lepszy sposób na łączenie stringow i zmiennych: `bla bla ${zmienna}`
+		const sentence = `Hi, my name is ${name}`;
+		console.log(sentence);
+
+		// object literal sprawia, ze zamiast pisać "speak" : function speak() {} możemy po prostu napisać speak() {}
+		// oraz jezeli mamy zmienna to tez nie musimy jej wypisac, czyli zamiast "computer" : computer to mozemy napisac tylko computer
+
+		// const Person = {
+		// 		"name" : "Grz",
+		// 		"speak" : function speak(){
+
+		// 		},
+		// 		"computer" : computer,
+		// }
+		const computer = "computer";
+		const person = {
+			"name" : "Grz",
+			speak() {
+				console.log("hau");
+			},
+			computer,
+		}
+
+		person.speak();
+		console.log(person.computer);
+
+	</script>
+
+
+</body>
+</html>

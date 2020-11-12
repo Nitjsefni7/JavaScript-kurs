@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Destructuring</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+
+
+		// trzykropek ... oznacza, ze zapisujemy w tablicy reszczte wartosci z tablicy, ktorych nie przypisalismy do zmiennych
+		var arr = ['Grz', 'Monia', 'Paszczak', "jeszcze", 'jedno', 'imie'];
+		let [grz, monia, paszczak, ...rest] = arr;
+		//console.log(rest);
+
+
+		// pozwala to szybciej przypisać zmiennym wartosci z jakiejs tablicy
+		// var [zmienna1, zmienna2, ...] = tablica;
+
+		// var fullName = prompt("What is your name?");
+		// let [firstName, lastName] = fullName.split(" ");
+
+		const person = {
+			"name_ale_w_wersji_ze_zbyt_dluga_nazwa" : "Grz",
+			'age' : 30,
+			"pets" : ["Paszczak", "Mordor"],
+			"partner" : "Monia",
+			"color" : "red",
+			"wzrost" : 186
+		}
+		//co mozemy zrobic: mozemy zmienic nazwe properties
+		//wystarczy uzyc odpowiedniej nazwerj klucza/properties aby otrzymac odpowiednia zmienna
+		//mozna przypisac nowa wartoc do nowej properties, ale jezeli dana istnieje, to przy destrukturyzacji nie zmienimy juz jej obecnej wartosci
+		let {
+			name_ale_w_wersji_ze_zbyt_dluga_nazwa : name, //zmieniamy nazwe klucza z obiektu person na cos bardziej przystepnego
+			partner, 
+			pets,
+			color = "blue",
+			...reszta // uzycie ... w przypadku obiektu zwraca nam obiekt z pozostalymi properties i ich wartosciami
+		} = person;
+		console.log(`Name is ${name} and partner is ${partner} and they have ${pets}`);
+		console.log(`Favourite color is ${color}`)
+		console.log(reszta);
+
+	</script>
+
+</body>
+</html>
