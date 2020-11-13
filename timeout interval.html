@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timeout, interval</title>
+</head>
+<body>
+
+
+
+	<script type="text/javascript">
+		
+		//setTimeout wykona jakas funckje po uplywie czasu podane w drugiej zmienny (czas w ms)
+		//setTimeout(function(){ }, 1000)
+
+		console.log("First log")
+		setTimeout(function(){
+			console.log("second log: timeout");
+		}, 3000);
+		console.log("Third log")
+
+		//kod czytany jest od gory do dolu, ale funckaj setTimeout musi poczekac az minie nadanh czas, natomiast kod jest czytany dalej
+
+		//Interval, wykonujemy funkcje co nadana ilosc sekund (w ms)
+		let i=0;
+		var logger = setInterval(function(){
+			i++;
+			console.log(`I am running for ${i} second(s) now`)
+		}, 1000)
+
+		// clearInterval() - sluzy do zatrzymania intervalu, ale musimy wczesniej dopisac go do jakiejs zmiennej (stad var logger)
+
+		// wylaczenie interval z uzyciem timeout
+		setTimeout(function(){
+			clearInterval(logger);
+		}, 5000)
+
+	</script>
+</body>
+</html>

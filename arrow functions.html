@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrow function</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		//arrow functions nie posiada this
+
+		greet = (name, place="home") => {
+			return `Hello ${name}. Welcome to ${place}`;
+		}
+
+		//jesli funkcja posiada tylko jeden parametr, nie trzeba uzywac nawiasów
+
+		greet = name => {
+			return `Hello ${name}`;
+		}
+
+		//jesli funckja jedyne co robi to zwraca jaka wartosc zapis mozna jeszcze bardziej uproscic
+
+		greet = name => `Hello ${name}`
+
+
+		//tablica.forEach(function(element, index){})
+		//tablica.forEach(element => {})
+		const arr = ["JavaScript", "Python", "PHP"];
+		arr.forEach(language => {
+			console.log(language);
+		});
+
+		//setTimeout(function(){}, 1000 [ms])
+		//setTimeout(() => {}, 1000) funkcja callback nie ma zadnych argumentow, stad tylko puste nawiasy
+		setTimeout(() => {
+			console.log("Times out");
+		}, 3000);
+
+	</script>
+
+</body>
+</html>

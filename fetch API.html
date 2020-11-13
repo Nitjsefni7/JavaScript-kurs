@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fetch</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var luke = {};
+		console.log("Before");
+
+		fetch('http://swapi.dev/api/people/1/') //chcemy dostac dane z danego adresu
+			.then(function(response){
+				console.log("First then");
+				return response.json(); //gdy  juz otrzymamy odpowiedz (resposne) to cokolwiek jestw niej chcemy aby bylo w formacie .json()
+			})
+			.then(function(res){
+				console.log("Second then");
+				luke = res; //a nastepnie robimy co chcemy z nasza odpowiedzia (tutaj res dla skrotu, moze byc nawer r)
+				console.log(luke);
+				//cwiczenia z destrukturyzacji
+				const [movie1, movie2, movie3, ...movies] = luke.films;
+				console.log(movie2);
+				
+				luke.films.forEach(function(url, index){
+					console.log(index, url);
+				})
+			});
+
+		console.log("After");
+		console.log("Luke: ", luke); // zwroci tutaj pusty obiekt, poniewaz kod wykona sie jeszcze zanim dostaniemy odpowiedz od API i dostaniemy dane w fetch
+
+		//console log aby pokazac, ze najpierw przeleca logi after i before a dopiero pozniej odbieranie danych, bo to zajmuje chwile
+
+
+
+	</script>
+
+</body>
+</html>
