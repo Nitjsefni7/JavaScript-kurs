@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final Project</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+	<style type="text/css">
+		
+		body {
+			font-family: 'Goldman', cursive;
+			text-align: center;
+			margin-top: 50px;
+			background-color: #dcb8b84d;
+			font-size: 100px;
+		}
+
+		.letter{
+			display: inline-block;
+			transition: all 150ms ease-in-out;
+		}
+
+		.letter.active {
+			transform: scale(1.5);
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div>Kocham Monię</div>
+
+	<script type="text/javascript">
+		
+		const title = document.querySelector("div");
+		let letters = title.innerText.split("");
+
+		// let classLetters = "<span class='letter'>" + letters.join("</span><span class='letter'>") + "</span>";
+		// title.innerHTML = classLetters;
+
+		title.innerText = '';
+		const fragment = document.createDocumentFragment();
+
+		letters.forEach(element => {
+				const s = document.createElement('span');
+				if (element !== " "){
+					s.className = "letter";
+				}
+				s.innerText = element;
+				fragment.appendChild(s);
+		});
+
+		title.appendChild(fragment);
+
+		letters = document.querySelectorAll(".letter");
+
+		letters.forEach(letter => {
+			letter.addEventListener("mouseover", function(event){
+				this.style.color = randomColor();
+				this.classList.add("active");
+			});
+			letter.addEventListener("mouseout", function(event){
+				this.style.color = "black";
+				this.classList.remove("active");
+			});
+		});
+
+		//funnkcje do uzyskania losowej liczby z zakresu 1 do 255 oraz pozniej do wpisania ich w rgb(...) napisane przy uzzyciu arrow functions
+
+		rnd = () => Math.floor(Math.random()*255);
+		
+		randomColor = () => `rgb(${rnd()}, ${rnd()}, ${rnd()})`;
+
+	</script>
+</body>
+</html>
