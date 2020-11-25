@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Closure Practice 2</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+	
+		const array = [1,2,3,4];
+
+		for(var i = 0; i <array.length; i++) {
+			(function(closureI) {
+				setTimeout(function(){
+					console.log("I am at index " + closureI)
+				}, 3000)
+			})(i);
+		}
+
+
+		// function doSetTimeout(i) {
+		// 	setTimeout(function(){
+		// 		console.log("I am at index " + i)
+		// 	},3000)
+		// }
+
+
+		// for (var i = 0; i < array.length; i++) {
+		// 	doSetTimeout(i);
+		// }
+
+		// array.forEach(function(element, index) {
+		// 	setTimeout(function(){
+		// 		console.log("I am at index " + index)
+		// 	}, 3000)
+		// })
+
+		// setTimeout(function(){
+		// 	for(var i = 0; i <array.length; i++) {
+		// 		console.log("I am at index " + i)
+		// 	}
+		// }, 3000)
+
+	</script>
+</body>
+</html>

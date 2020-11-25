@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var favouriteFood = "grapes";
+
+		const foodThoughts = function () {
+			console.log("Old favourite food is: " + favouriteFood);
+			var favouriteFood = 'sushi';
+			console.log("New favourite food is: " + favouriteFood);
+		};
+
+		foodThoughts();
+		console.log("New favourite food GLOBAL is: " + favouriteFood);
+
+		function funkcja(...args){
+			console.log("argumenty: " + args);
+		};
+
+		funkcja('x1','x2','x3','x4','x5');
+
+	</script>
+
+</body>
+</html>

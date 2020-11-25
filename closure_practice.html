@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Closure Practice</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	let view;
+	function initialize() {
+		let called = 0;
+		console.log("called is equal to " + called)
+		return function () {
+			if (called > 0){
+				console.log("is called bigger than 0? " + called)
+				return;
+			} else {
+				view = "widok";
+				called++;
+				console.log("view have been set, called " + called)
+			}
+		}
+	}
+	const setOnce = initialize();
+	setOnce();
+	setOnce();
+	//setOnce();
+	//setOnce();
+	initialize();
+	setOnce();
+	setOnce();
+
+
+	console.log(view);
+
+</script>
+</body>
+</html>

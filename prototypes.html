@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototypes</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		//dodawanie metody do isntniejacego obiektu: nalezy dodac metode do prototype obiektu
+		//w tym przypadku dodajemy funckje lastYear do prototype obiektu Date
+
+		Date.prototype.lastYear = function () {return this.getFullYear() - 1}
+		console.log(new Date().lastYear());
+
+		//Person ma .prototype
+		var Person = function(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		var p1 = new Person("Monia", 24)
+
+		let arr = [1,2,3];
+		Array.prototype.map = function () {
+			let newArr = [];
+			this.forEach(function(element, index){
+				newArr.push(element + ' mapa');
+			});
+			return newArr;
+		}
+
+		console.log(arr.map());
+
+
+	</script>
+
+</body>
+</html>

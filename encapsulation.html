@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Encapsulation</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		const nuclearLaunchButton = () => {
+			let timeWithoutDestruction = 0;
+			const passTime = () => timeWithoutDestruction++;
+			const totalPeaceTime = () => timeWithoutDestruction;
+			const launch = () => {
+				timeWithoutDestruction = -1;
+				return "BOOM!!!!!"
+			}
+			setInterval(passTime, 1000);
+			return {
+				launch,
+				totalPeaceTime
+			}
+		}
+
+		const ohno = nuclearLaunchButton();
+
+
+	</script>
+
+</body>
+</html>
