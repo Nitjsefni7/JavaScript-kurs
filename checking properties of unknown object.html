@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checking properties of the unknown object</title>
+</head>
+<body>
+
+		<script type="text/javascript">
+
+		//wypisanie properties obiektu
+		//w tym przypadku rowniez tych odziedziczonych
+			for (let prop in object_name){
+				console.log("Name is " + prop + " and it is a type of " + typeof object_name[prop]);
+			}
+		//tutaj tylko wlasne properties
+			const propArray = Object.keys(object_name);
+		//musimy uzyc object_name[element] aby dostać się do wartości property o danej nazwie, gdyby użyć object_name.element to szukalibysmy property o nazwie "element" w obiekcie
+			propArray.forEach((element) => console.log("Name of own property is " + element + " and the type of it is " + typeof object_name[element]));
+
+		</script>
+</body>
+</html>
