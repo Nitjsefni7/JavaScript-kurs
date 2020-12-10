@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		const fun1 = function(x) {
+			console.log("fun1 " + x)
+		}
+
+		const fun2 = function(x, fun) {
+			console.log("fun2 " + x)
+			fun(x*x)
+		}
+
+		fun2(5, fun1)
+
+		//funkcja ktora wykona jakas funkcje po uplywie zadanego czasu
+		//przekazujemy funkcji func( czyli cos co chcemy wykonac po uplywie czasu)
+		//zwracamy funkcje, ktora zapamieta wartosc this i arguments po czym inwokuje przekazana funkcje
+		//poprzez apply, aby wartosc this i arguments pozostala bez zmian
+		const executeWait = function(func, wait){
+		    let timeout; 
+		    let callNow = true;
+		    return function(){
+		        const thisVal = this;
+		        const args = arguments;
+		        const later = function() {
+		            callNow = true;
+		        }
+		        if (callNow) {
+		            callNow = false;
+		            func.apply(thisVal, args);
+		            timeout = setTimeout(later, wait)
+		        }
+		    }
+		}
+
+		//tutaj przykadlowe zastosowanie: executeWait juz mamy zadeklarowane, i zeby to zadzialalo to funckje jako argument musimy przekazac bez nawiasow, tj albo jako zmienna do ktorej zostala wczesniej przypisana funkcja lub np jako funkcje anonimowa jak w tym przypadku
+		//oczywiscie mozna by to napisac od razu w evencie od mouseMoceHandler ale dzieki temu otrzymujemy mozliwosc ozywania tego czekania na wywoaleni funkcji z innymi funkcjami, wiec DRY
+		var mouseMoveHandler = executeWait(function(e){
+            loadInfo("Mouse move recorded at coordinates: " + e.pageX + ", " + e.pageY, e);
+        }, 500)
+		document.addEventListener("mousemove", mouseMoveHandler);
+
+	</script>
+
+</body>
+</html>

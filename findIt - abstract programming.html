@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Abstract thinking</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		
+		// const findIt = () =>{
+		// 	const start = 1;
+		// 	const end = 100;
+		// 	const multiple = 3;
+		// 	let total = 0
+
+		// 	while (start <= end){
+		// 		if (start % multiple === 0){
+		// 			total += start;	
+		// 		}
+		// 		start++;
+		// 		}
+		// 	}
+
+		const sumUp = (arr) => {
+			let total = 0;
+			arr.forEach((element) => {
+				total += element;
+			});
+			return total;
+		}
+
+		const findMultiple = (start, end, multiple) => {
+			let multiples = [];
+			while (start <= end) {
+				if (start % multiple === 0){
+					multiples.push(start);
+				}
+				start++;
+			}
+			return multiples;
+		}
+
+		console.log("Suma liczb podzielnych przez 3 z zakresu od 1 do 100 jest równe: " + sumUp(findMultiple(1,100,3)));
+
+	</script>
+</body>
+</html>

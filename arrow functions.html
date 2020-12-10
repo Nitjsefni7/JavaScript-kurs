@@ -7,7 +7,7 @@
 
 	<script type="text/javascript">
 		
-		//arrow functions nie posiada this
+		//arrow functions nie posiada this (a dokładnie to określa this leksykalnie, tj. przypisuje wartosc this w zalezcności od tego gdzie występuje, a nie normalnie że this przyposane jest do obiektu, który wywołuje funkcje)
 
 		greet = (name, place="home") => {
 			return `Hello ${name}. Welcome to ${place}`;

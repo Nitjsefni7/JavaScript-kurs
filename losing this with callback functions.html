@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Losing "this" with callback functions</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var firstName = "Grzegorz";
+		var lastName = "Skupiewski";
+
+		var obj1 = {
+			firstName: "Monia",
+			lastName: "Kubica"
+		}
+
+		var obj2 = {
+			firstName: "Paszczak",
+			lastName: "Skubica"
+		}
+
+		//przy uzyciu np. setTimeout tracimy znaczenie słowa this, które wraca z powrotem do obiektu globalnego
+		//sa dwa sposoby aby temu zapobiec
+		//przed funkcja przypisujemy this do that
+		//albo uzywamy metody .bind() aby stowrzyć nowa callback funckję, która będzie miała na stałe przypisane this do naszego 
+		//this (zmienionego przez .call())
+		// var fullName = function() {
+		// 	//const that = this;
+		// 	setTimeout(function(){
+		// 		console.log(this.firstName + " " + this.lastName);	
+		// 	}.bind(this),2000)
+		// }
+
+		//istnieje jeszcze sposób rozwiazania tego problemu poprzez uzycie arrow functions, ponieważ this zostaje wtedy przypisane leksykalnie - cos jak przy uzyciu bind()
+		var fullName = function() {
+			setTimeout(() => {
+				console.log(this.firstName + " " + this.lastName)
+			},2000)
+		}
+
+		fullName.call(obj1);
+		fullName.call(obj2);
+
+	</script>
+
+</body>
+</html>
